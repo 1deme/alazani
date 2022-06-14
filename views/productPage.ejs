@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutorial</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="../public/styles/productPage.css">
+    <style href >
+    </style>
+    <meta name="robots" content="noindex,follow" />
+
+  </head>
+
+  <body>
+    <%- include("./partials/header.ejs")%>
+    <main class="container">
+      <%
+      img = new Buffer(rows[0].image).toString('base64');
+      %>
+      <div class="left-column">
+        <img data-image="red" id="image" class="active" src="data:image/jpeg;base64,<%- img %>" alt="" height="100%" width="8%">
+      </div>
+
+
+      <div class="right-column">
+
+        <div class="product-description">
+          <span id="category" ><%=rows[0].category%></span>
+          <h1 id="name" ><%=rows[0].name%></h1>
+          <p id="description" ><%=rows[0].description%></p>
+        </div>
+
+        <div class="product-price" onclick="addProductToCart()" >
+          <span id="price" ><%=rows[0].price%>$</span>
+          <a href="#" class="cart-btn">Add to cart</a>
+        </div>
+
+      </div>
+
+    </main>
+
+    <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-dce91fe8-f9f1-444a-95bc-eeec8526fe44"></div>
+
+    <%- include("./partials/footer.ejs"); %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script>
+      class cartItem{
+        constructor(otherId, otherPrice, otherCategory, otherName, otherDescription, otherImage, otherAmount){
+          this.id=otherId; 
+          this.price=otherPrice;
+          this.category=otherCategory; 
+          this.name=otherName;
+          this.description=otherDescription;
+          this.image=otherImage;
+          this.amount=otherAmount;
+          this.totalPrice = this.price * this.amount;
+        }
+      }
+
+      function addProductToCart(){
+        var url = window.location.href;
+        var ProductId = parseInt(url.substring(url.lastIndexOf('/') + 1));
+        let amount = parseInt(prompt("Please enter amount", "1"));
+        if(isNaN(amount) || amount < 1){
+          alert("Please enter a valid amount");
+          return;
+        }
+        var newcartItem = new cartItem(
+          ProductId,
+          parseInt(document.getElementById("price").innerHTML),
+          document.getElementById("category").innerHTML,
+          document.getElementById("name").innerHTML,
+          document.getElementById("description").innerHTML,
+          document.getElementById("image").src,
+          amount
+        );
+        console.log(newcartItem.name);
+
+        if(localStorage.getItem("cart") == null){
+          var cart = [];
+          cart.push(newcartItem);
+          localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        else{
+          var cart = JSON.parse(localStorage.getItem("cart"));  
+          for(var i = 0; i < cart.length; i++){
+            if(cart[i].id == ProductId){
+              cart[i].amount+=amount;
+              localStorage.setItem("cart", JSON.stringify(cart));
+              return;
+            }
+          }
+          cart.push(newcartItem);
+          localStorage.setItem("cart", JSON.stringify(cart));
+        
+        }
+        
+      }
+    </script>
+  </body>
+</html>  
