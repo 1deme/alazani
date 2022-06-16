@@ -24,7 +24,7 @@
                   <input type="password" placeholder="Password" class="inp" id="pass" />
                 </div>
                 <button type="submit" id="register" >Sign-in</button>
-                <button id="reset" onclick="resett()">Reset</button>
+                <button type="button" id="reset" onclick="resett()">Reset</button>
             </div>
         </div>
     </div>
@@ -32,16 +32,6 @@
     <button id = "in_or_up " onclick="location.href='./signup'"  class="reg-open">Sign-Up</button>
     <%- include("../partials/footer.ejs"); %>
 
-    <script>
-    
-    function resett() {
-      let inputs = document.getElementsByClassName("inp");
-      for (inp of inputs) {
-          inp.value = "";
-      }
-    }
-    
-      
-    </script>
+    <script src="../../public/js/entry.js" ></script>
   </body>
 </html>
