@@ -1,50 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tutorial</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="../public/styles/productPage.css">
-    <style href >
-    </style>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../public/styles/productPage.css" />
+    <style href></style>
     <meta name="robots" content="noindex,follow" />
-
   </head>
 
   <body>
     <%- include("./partials/header.ejs")%>
     <main class="container">
-      <%
-      img = new Buffer(rows[0].image).toString('base64');
-      %>
+      <% img = new Buffer(rows[0].image).toString('base64'); %>
       <div class="left-column">
-        <img data-image="red" id="image" class="active" src="data:image/jpeg;base64,<%- img %>" alt="" height="100%" width="8%">
+        <img
+          data-image="red"
+          id="image"
+          class="active"
+          src="data:image/jpeg;base64,<%- img %>"
+          alt=""
+          height="100%"
+          width="8%"
+        />
       </div>
-
 
       <div class="right-column">
-
         <div class="product-description">
-          <span id="category" ><%=rows[0].category%></span>
-          <h1 id="name" ><%=rows[0].name%></h1>
-          <p id="description" ><%=rows[0].description%></p>
+          <span id="category"><%=rows[0].category%></span>
+          <h1 id="name"><%=rows[0].name%></h1>
+          <p id="description"><%=rows[0].description%></p>
         </div>
 
-        <div class="product-price" onclick="addProductToCart()" >
-          <span id="price" ><%=rows[0].price%>$</span>
+        <div class="product-price" onclick="addProductToCart()">
+          <span id="price"><%=rows[0].price%>$</span>
           <a href="#" class="cart-btn">Add to cart</a>
         </div>
-
       </div>
-
     </main>
 
     <script src="https://apps.elfsight.com/p/platform.js" defer></script>
     <div class="elfsight-app-dce91fe8-f9f1-444a-95bc-eeec8526fe44"></div>
 
     <%- include("./partials/footer.ejs"); %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="../public/js/productPage.js" ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+      charset="utf-8"
+    ></script>
+    <script src="../public/js/productPage.js"></script>
   </body>
-</html>  
+</html>

@@ -1,115 +1,116 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);  
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
-*, *:before, *:after {
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 body {
-    font: 14px/22px "Lato", Arial, sans-serif;
-    background: rgb(29, 29, 29);
+  font: 14px/22px "Lato", Arial, sans-serif;
+  background: rgb(29, 29, 29);
 }
 .container {
-    background-color: rgb(62, 62, 62);
-    margin: auto;
-    width: 80%;
+  background-color: rgb(62, 62, 62);
+  margin: auto;
+  width: 80%;
 }
 .shopping-cart {
-    margin: 20px 0;
-    float: left;
-    background: rgb(62, 62, 62);
-    width: 40%;
-    position: relative;
-    border-radius: 3px;
-    padding: 20px;
+  margin: 20px 0;
+  float: left;
+  background: rgb(62, 62, 62);
+  width: 40%;
+  position: relative;
+  border-radius: 3px;
+  padding: 20px;
 }
 .shopping-cart-header {
-    border-bottom: 1px solid #E8E8E8;
-    padding-bottom: 15px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 15px;
 }
 
 .shopping-cart-total {
-    float: right;
+  float: right;
 }
 li {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 img {
-    float: left;
-    margin-top: 15px;
-    margin-right: 12px;
-    width: 60px;
+  float: left;
+  margin-top: 15px;
+  margin-right: 12px;
+  width: 60px;
 }
-#carticon{
-    color: rgb(236, 29, 29);
+#carticon {
+  color: rgb(236, 29, 29);
 }
 
 .item-name {
-    color:white;
-    display: block;
-    padding-top: 10px;
-    font-size: 16px;
+  color: white;
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
 }
 .item-price {
-    margin-top: 20px;
-    color: white;
+  margin-top: 20px;
+  color: white;
 }
 
 .item-quantity {
-    color: rgb(196, 192, 192);
-    float: right;
-    bottom: 0%;
+  color: rgb(196, 192, 192);
+  float: right;
+  bottom: 0%;
 }
 .shopping-cart:after {
-    bottom: 100%;
-    left: 89%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-bottom-color: white;
-    border-width: 8px;
-    margin-left: -8px;
+  bottom: 100%;
+  left: 89%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: white;
+  border-width: 8px;
+  margin-left: -8px;
 }
 .clearfix:after {
-    content: "";
-    display: table;
-    clear: both;
-    flex-direction: row;
+  content: "";
+  display: table;
+  clear: both;
+  flex-direction: row;
 }
 .button {
-    background: blue;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    display: block;
-    border-radius: 3px;
-    font-size: 16px;
-    margin: 5px 0 15px 0;
+  background: blue;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 5px 0 15px 0;
 }
-.lighter-text{
-    color: white;
+.lighter-text {
+  color: white;
 }
 
 .button:hover {
-    background: lighten(red, 3%);
+  background: lighten(red, 3%);
 }
 .button1 {
-    background: red;
-    color: white;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    display: block;
-    border-radius: 3px;
-    font-size: 16px;
-    margin: 25px 0 15px 0;
+  background: red;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
 }
 
 .button1 :hover {
-    background: lighten(red, 3%);
+  background: lighten(red, 3%);
 }
-
