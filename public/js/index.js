@@ -8,7 +8,6 @@
           card.querySelector("h3").innerHTML.toLowerCase().replace(/ /g,'')
           + card.querySelector("h1").innerHTML.toLowerCase().replace(/ /g,'');
         
-        console.log(modCard);
         const price = card.querySelector("price").innerHTML;
         var l = check(modCard,value);
         var l2 =  checkPriceBounds(price,value);
@@ -47,7 +46,6 @@
     var parsedboundString = boundString.substring(start+1,end)
     var lowBound = parsedboundString.substring(0,parsedboundString.indexOf("-"));
     var highBound = parsedboundString.substring(parsedboundString.indexOf("-")+1,parsedboundString.length);
-    console.log(isNaN(lowBound)+" "+ isNaN(highBound)+" "+isNaN(price)+" "+lowBound+" "+highBound+" "+price);
     if(highBound==""){
       highBound = Number.MAX_SAFE_INTEGER;
     }
@@ -63,7 +61,6 @@
     if(!isNaN(lowBound) && isNaN(highBound) && parseInt(price,10)>=parseInt(lowBound,10) ){
         return true;
     }
-    console.log((price<=highBound)+" "+price+" "+highBound+"esaa essss");
     if(!isNaN(lowBound) && !isNaN(highBound) 
     && parseInt(price,10)>=parseInt(lowBound,10) && parseInt(price,10)<=parseInt(highBound,10)){
         return true;
