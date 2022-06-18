@@ -28,7 +28,6 @@ class cartItem{
       document.getElementById("image").src,
       amount
     );
-    console.log(newcartItem.name);
 
     if(localStorage.getItem("cart") == null){
       var cart = [];

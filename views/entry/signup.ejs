@@ -1,49 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>    
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resgistration Form</title>
-    <link rel="stylesheet" href="../../public/styles/signup.css">
+    <link rel="stylesheet" href="../../public/styles/signup.css" />
   </head>
   <body>
     <%- include("../partials/header.ejs")%>
 
     <div class="registration-popup" id="regpopup">
-      <form action="/create-new-acc" method="POST" >
-        <div class="content">   
+      <form action="/create-new-acc" method="POST">
+        <div class="content">
           <h1 id="h1">Create new account</h1>
           <div class="input">
-            <input type="text" placeholder="First Name" class="inp"  id="name"/>
+            <input type="text" placeholder="First Name" class="inp" id="name" />
           </div>
           <div class="input">
-            <input type="text" placeholder="Second Name" class="inp" id="secname"/>
+            <input
+              type="text"
+              placeholder="Second Name"
+              class="inp"
+              id="secname"
+            />
           </div>
           <div class="input">
-            <input type="text" placeholder="Username" class="inp" id="username" />
+            <input
+              type="text"
+              placeholder="Username"
+              class="inp"
+              id="username"
+            />
           </div>
           <div class="input">
-              <input type="tel" placeholder="Phone Number" class="inp" id="phone" />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              class="inp"
+              id="phone"
+            />
           </div>
           <div class="input">
-              <input type="text" placeholder="Address" class="inp" id="addres" />
+            <input type="text" placeholder="Address" class="inp" id="addres" />
           </div>
           <div class="input">
-            <input type="password" placeholder="Password" class="inp" id="pass" />
+            <input
+              type="password"
+              placeholder="Password"
+              class="inp"
+              id="pass"
+            />
           </div>
           <div class="input">
-            <input type="password" placeholder="Repeat password" class="inp" id="repass" />
+            <input
+              type="password"
+              placeholder="Repeat password"
+              class="inp"
+              id="repass"
+            />
           </div>
-          <input type="submit" id="register" value="register"  >
-          <input type="button" id="reset" value="Reset" onclick="resett()" >
+          <input type="submit" id="register" value="register" />
+          <input type="button" id="reset" value="Reset" onclick="resett()" />
         </div>
       </form>
     </div>
-  
-    <button id = "in_or_up " onclick="location.href='./signin'" class="reg-open">Sign-In</button>
+
+    <button id="in_or_up " onclick="location.href='./signin'" class="reg-open">
+      Sign-In
+    </button>
     <%- include("../partials/footer.ejs"); %>
 
-    <script src="../../public/js/entry.js" ></script>
+    <script src="../../public/js/entry.js"></script>
   </body>
 </html>

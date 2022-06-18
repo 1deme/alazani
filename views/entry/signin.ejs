@@ -5,33 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resgistration Form</title>
-    <link rel="stylesheet" href="../../public/styles/signin.css">
+    <link rel="stylesheet" href="../../public/styles/signin.css" />
   </head>
   <body>
     <%- include("../partials/header.ejs")%>
-<form action="/log/in/acc" method="post" >
-    <div class="registration-popup" id="reg-sign-in">
+    <form action="/log/in/acc" method="post">
+      <div class="registration-popup" id="reg-sign-in">
         <div class="content">
-            <h1 >Sign-in</h1>
-            <div class = "smt">        
-                <div class="input">
-                  <input type="text" placeholder="Username" class="inp" id="username" />
-                </div>
-                <div class="input">
-                  <input type="text" placeholder="email" class="inp"  />
-                </div>
-                <div class="input">
-                  <input type="password" placeholder="Password" class="inp" id="pass" />
-                </div>
-                <button type="submit" id="register" >Sign-in</button>
-                <button type="button" id="reset" onclick="resett()">Reset</button>
+          <h1>Sign-in</h1>
+          <div class="smt">
+            <div class="input">
+              <input
+                type="text"
+                placeholder="Username"
+                class="inp"
+                id="username"
+              />
             </div>
+            <div class="input">
+              <input type="text" placeholder="email" class="inp" />
+            </div>
+            <div class="input">
+              <input
+                type="password"
+                placeholder="Password"
+                class="inp"
+                id="pass"
+              />
+            </div>
+            <button type="submit" id="register">Sign-in</button>
+            <button type="button" id="reset" onclick="resett()">Reset</button>
+          </div>
         </div>
-    </div>
+      </div>
     </form>
-    <button id = "in_or_up " onclick="location.href='./signup'"  class="reg-open">Sign-Up</button>
+    <button id="in_or_up " onclick="location.href='./signup'" class="reg-open">
+      Sign-Up
+    </button>
     <%- include("../partials/footer.ejs"); %>
 
-    <script src="../../public/js/entry.js" ></script>
+    <script src="../../public/js/entry.js"></script>
   </body>
 </html>
