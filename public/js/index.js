@@ -9,9 +9,7 @@ searchInput.addEventListener("keyup", function (e) {
       card.querySelector("h1").innerHTML.toLowerCase().replace(/ /g, "");
 
     const price = card.querySelector("price").innerHTML;
-    var l = check(modCard, value);
-    var l2 = checkPriceBounds(price, value);
-    if (l && l2) {
+    if (checkKeyWords(modCard, value) && checkPriceBounds(price, value)) {
       card.style.display = "block";
     } else {
       card.style.display = "none";
@@ -19,11 +17,10 @@ searchInput.addEventListener("keyup", function (e) {
   });
 });
 
-function check(modCard, value) {
+function checkKeyWords(modCard, value) {
   var valueLength = value.length;
   var index = value.lastIndexOf(":");
   var names = value.substring(0, !(index + 1) ? valueLength : index);
-  var price = value;
   var namesArray = names.split(",");
   var ans = false;
   namesArray.forEach((name) => {
