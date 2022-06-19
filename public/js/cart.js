@@ -5,11 +5,11 @@ if (cart == null) {
 
 cart.forEach(function (cartItem) {
   document
-    .getElementsByClassName("shopping-cart-item")[0]
-    .appendChild(
-      addelement(cartItem.name, cartItem.price, cartItem.amount, cartItem.image)
-    );
-});
+  .getElementsByClassName("shopping-cart-item")[0]
+  .appendChild(
+    addelement(cartItem.name, cartItem.price, cartItem.amount, cartItem.image)
+  )
+})
 var element = document.getElementById("footerId");
 var main = document.getElementById("mainbody");
 if (main.scrollHeight > main.clientHeight) {
