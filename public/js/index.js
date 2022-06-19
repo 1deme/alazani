@@ -9,11 +9,16 @@ searchInput.addEventListener("keyup", function (e) {
       card.querySelector("h1").innerHTML.toLowerCase().replace(/ /g, "");
 
     const price = card.querySelector("price").innerHTML;
-    if (checkKeyWords(modCard, value) && checkPriceBounds(price, value)) {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
+    checkKeyWords(modCard, value) && checkPriceBounds(price, value)
+      ? (card.style.display = "block")
+      : (card.style.display = "none");
+
+    var footer = document.getElementById("footerId");
+    var main = document.getElementById("mainbody");
+
+    main.scrollHeight > main.clientHeight
+      ? footer.classList.remove("classfooter")
+      : footer.classList.add("classfooter");
   });
 });
 
