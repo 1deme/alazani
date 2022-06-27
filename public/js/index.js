@@ -1,5 +1,13 @@
 var searchInput = document.getElementById("searchbar");
 var cards = document.querySelectorAll(".card,.card2");
+var footer = document.getElementById("footerId");
+var main = document.getElementById("mainbody");
+
+
+
+main.scrollHeight > main.clientHeight
+  ? footer.classList.remove("classfooter")
+  : footer.classList.add("classfooter");
 
 searchInput.addEventListener("keyup", function (e) {
   const value = e.target.value.toLowerCase().replace(/ /g, "");
@@ -12,9 +20,6 @@ searchInput.addEventListener("keyup", function (e) {
     checkKeyWords(modCard, value) && checkPriceBounds(price, value)
       ? (card.style.display = "block")
       : (card.style.display = "none");
-
-    var footer = document.getElementById("footerId");
-    var main = document.getElementById("mainbody");
 
     main.scrollHeight > main.clientHeight
       ? footer.classList.remove("classfooter")
