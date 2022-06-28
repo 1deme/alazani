@@ -1,8 +1,16 @@
+/**
+ * gets the cart items from local storage.
+ */
 var cart = JSON.parse(localStorage.getItem("cart"));
+/**
+ * sets car to empty list if local storage is empty.
+ */
 if (cart == null) {
   cart = [];
 }
-
+/**
+ * adds every cart item on the page.
+ */
 cart.forEach(function (cartItem) {
   document
     .getElementsByClassName("shopping-cart-item")[0]
@@ -17,6 +25,14 @@ if (main.scrollHeight > main.clientHeight) {
 } else {
   element.classList.add("classfooter");
 }
+/**
+ * assembles the cart item
+ * @param {string} name - name of the item
+ * @param {int} price - price of the item
+ * @param {int} quantity - amount of the item 
+ * @param {string} image - image of the item 
+ * @returns - returns a div element with the item information.
+ */
 function addelement(name, price, quantity, image) {
   document.getElementsByClassName("lighter-text")[0].innerHTML =
     "Total: " + getTotal() + "$";
@@ -40,12 +56,17 @@ function addelement(name, price, quantity, image) {
   sp3.appendChild(document.createTextNode("Quantity: " + quantity));
   return ls;
 }
-
+/**
+ * clears the cart.
+ */
 function clearCart() {
   localStorage.removeItem("cart");
   window.location.reload();
 }
-
+/**
+ * iterates over every cart Item and sums up the price.
+ * @returns {number} - total price of the cart.
+ */
 function getTotal() {
   if (localStorage.getItem("cart") == null) {
     return 0;
