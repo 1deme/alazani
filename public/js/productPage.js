@@ -1,3 +1,6 @@
+/**
+ * cart Item class
+ */
 class cartItem{
     constructor(otherId, otherPrice, otherCategory, otherName, otherDescription, otherImage, otherAmount){
       this.id=otherId; 
@@ -10,7 +13,11 @@ class cartItem{
       this.totalPrice = this.price * this.amount;
     }
   }
-
+/**
+ * assembles the cart item. checks if item with same id is already in cart. if not, adds it.
+ * if yes, increases the amount and total price.
+ * @returns 
+ */
   function addProductToCart(){
     var url = window.location.href;
     var ProductId = parseInt(url.substring(url.lastIndexOf('/') + 1));
