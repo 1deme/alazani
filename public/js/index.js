@@ -14,7 +14,10 @@ var footer = document.getElementById("footerId");
  * main body for checking height of the screen.
  */
 var main = document.getElementById("mainbody");
-
+/**
+ * length of the type of the product.
+ */
+var lengthOfType = 0;
 /**
  * adjusts footer according to the screen size.
  */
@@ -31,6 +34,7 @@ searchInput.addEventListener("keyup", function (e) {
     const modCard =
       card.querySelector("h3").innerHTML.toLowerCase().replace(/ /g, "") +
       card.querySelector("h1").innerHTML.toLowerCase().replace(/ /g, "");
+    lengthOfType = card.querySelector("h1").innerHTML.replace(/ /g, "").length;
 
     const price = card.querySelector("price").innerHTML;
     checkKeyWords(modCard, value) && checkPriceBounds(price, value)
@@ -56,10 +60,11 @@ function checkKeyWords(modCard, value) {
   var names = value.substring(0, !(index + 1) ? valueLength : index);
   var namesArray = names.split(",");
   var ans = false;
+  console.log(lengthOfType);
   namesArray.forEach((name) => {
     if (
       modCard.includes(name) ||
-      levenshtein(name, modCard) < modCard.length / 3
+      levenshtein(name, modCard) < modCard.length / 3 + lengthOfType
     ) {
       ans = true;
     }
