@@ -14,6 +14,9 @@ var footer = document.getElementById("footerId");
  * main body for checking height of the screen.
  */
 var main = document.getElementById("mainbody");
+/**
+ * length of the type of the product.
+ */
 var lengthOfType = 0;
 /**
  * adjusts footer according to the screen size.
