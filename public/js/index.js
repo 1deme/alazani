@@ -28,6 +28,77 @@ main.scrollHeight > main.clientHeight
  * function takes care of apperance of the cards. if the card is in the input or close to it the card is shown.
  * if not the card is hidden. it also moves footer according to the size of the screen.
  */
+
+//add function on cntrl+enter
+searchInput.addEventListener("keydown", function (e) {
+  var priceOfFullInventory = 0;
+  if (e.keyCode === 13 && e.ctrlKey) {
+    const pdf = document.createElement("center");
+    const tbl = document.createElement("table");
+    const tblBody = document.createElement("tbody");
+
+    tblBody.appendChild(generateTytleRow());
+
+    cards.forEach((card) => {
+      const row = document.createElement("tr");
+      row.appendChild(generateTd(card, 0));
+      row.appendChild(generateTd(card, 1));
+      row.appendChild(generateTd(card, 2));
+      tblBody.appendChild(row);
+      priceOfFullInventory += parseInt(card.querySelector("price").innerHTML);
+    });
+    const fullPrice = document.createElement("h1");
+    var tytlecellText = document.createTextNode("type");
+    fullPrice.appendChild(tytlecellText);
+    pdf.appendChild(fullPrice);
+    tbl.appendChild(tblBody);
+    tbl.setAttribute("border", "2");
+    pdf.appendChild(tbl);
+    newwin = window.open();
+    newwin.document.write(pdf.outerHTML);
+    newwin.print();
+    newwin.close();
+  }
+});
+
+function generateTd(card, index) {
+  switch (index) {
+    case 0:
+      cellText = document.createTextNode(card.querySelector("h1").innerHTML);
+      break;
+    case 1:
+      cellText = document.createTextNode(card.querySelector("h3").innerHTML);
+      break;
+    case 2:
+      cellText = document.createTextNode(card.querySelector("price").innerHTML);
+      break;
+  }
+  var cell = document.createElement("td");
+  cell.appendChild(cellText);
+  return cell;
+}
+
+function generateTytleRow() {
+  var tytleRow = document.createElement("tr");
+
+  var tytlecell = document.createElement("td");
+  var tytlecellText = document.createTextNode("type");
+  tytlecell.appendChild(tytlecellText);
+  tytleRow.appendChild(tytlecell);
+
+  tytlecell = document.createElement("td");
+  tytlecellText = document.createTextNode("name");
+  tytlecell.appendChild(tytlecellText);
+  tytleRow.appendChild(tytlecell);
+
+  tytlecell = document.createElement("td");
+  tytlecellText = document.createTextNode("price");
+  tytlecell.appendChild(tytlecellText);
+  tytleRow.appendChild(tytlecell);
+
+  return tytleRow;
+}
+
 searchInput.addEventListener("keyup", function (e) {
   const value = e.target.value.toLowerCase().replace(/ /g, "");
   cards.forEach((card) => {
@@ -51,7 +122,7 @@ searchInput.addEventListener("keyup", function (e) {
  * function extracts item and puts it in an array. if any of the item in the array is in input or
  * close to it(levenshtein distance) function returns true.
  * @param {string} modCard - card informatin name, price, type
- * @param {string} value  - search bar input 
+ * @param {string} value  - search bar input
  * @returns {boolean} - true if item is in input or close to it.
  */
 function checkKeyWords(modCard, value) {
