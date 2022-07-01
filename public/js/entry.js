@@ -16,3 +16,7 @@ function resett() {
     inp.value = "";
   }
 }
+
+function redirectToMain(){
+  window.location = "/";
+}
